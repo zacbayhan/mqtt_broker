@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+  mosquitto:
+    build: mosquitto/
+    ports:
+      - 1883:1883
+      - 9001:9001
+    volumes:
+      - ./mosquitto/config/mosquitto.conf:/etc/mosquitto/mosquitto.conf
+    networks:
+      - mosq
+
+networks:
+  mosq:
+    driver: bridge
